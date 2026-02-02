@@ -2,6 +2,7 @@
 // - Auto move expired reports to archive
 // - Admin upload system
 // - Dark mode
+
 /* ================================
    SCROLL REVEAL ANIMATION
 ================================ */
@@ -58,8 +59,8 @@ glowElements.forEach(el => {
   });
 
   el.addEventListener("mouseleave", () => {
-    el.style.setProperty("--x", `50%`);
-    el.style.setProperty("--y", `50%`);
+    el.style.setProperty("--x", "50%");
+    el.style.setProperty("--y", "50%");
   });
 });
 
@@ -103,13 +104,14 @@ window.addEventListener("scroll", () => {
   let scrollY = window.scrollY;
   hero.style.opacity = Math.max(1 - scrollY / 400, 0.2);
 });
+
+
 /* ================================
    SECTION TOGGLE (NAV CLICK)
 ================================ */
 const navLinksAll = document.querySelectorAll("nav a");
 const allSections = document.querySelectorAll("section[id]");
 
-// hide all except home on load
 function showSection(id) {
   allSections.forEach(section => {
     section.style.display =
@@ -125,5 +127,17 @@ navLinksAll.forEach(link => {
     const targetId = link.getAttribute("href").substring(1);
     showSection(targetId);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+
+const revealsAgain = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+  revealsAgain.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('active');
+    }
   });
 });
