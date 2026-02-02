@@ -216,4 +216,34 @@ h2 {
 .hero h1 {
   text-shadow: 0 8px 30px rgba(0,0,0,.65);
 }
+/* ===============================
+   MOBILE NAV FIX
+================================ */
+.menu-btn {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    background: #151311;
+    padding: 20px;
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
 
