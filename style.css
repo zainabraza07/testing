@@ -175,3 +175,45 @@ h2 {
 
   .hero h1 { font-size:2.2rem; }
 }
+/* ===============================
+   CINEMATIC POLISH
+================================ */
+
+/* soft floating background motion */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(176,141,60,0.05), transparent 45%);
+  animation: floatBg 14s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes floatBg {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+/* card micro-interaction */
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* timeline animation */
+.event {
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.event:hover {
+  transform: translateX(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+/* hero text glow */
+.hero h1 {
+  text-shadow: 0 8px 30px rgba(0,0,0,.65);
+}
+
