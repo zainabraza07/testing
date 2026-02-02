@@ -1,5 +1,5 @@
 /* ===============================
-   INTERSECTION OBSERVER REVEALS
+   SCROLL REVEAL (SAFE)
 ================================ */
 const reveals = document.querySelectorAll(".reveal");
 
@@ -8,7 +8,6 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
-        observer.unobserve(entry.target); // animate once
       }
     });
   },
@@ -20,48 +19,26 @@ reveals.forEach(el => observer.observe(el));
 /* ===============================
    SCROLL PROGRESS BAR
 ================================ */
-const progress = document.getElementById("scroll-progress");
+const progressBar = document.getElementById("scroll-progress");
 
 window.addEventListener("scroll", () => {
   const scrollTop = document.documentElement.scrollTop;
   const height =
     document.documentElement.scrollHeight - window.innerHeight;
 
-  progress.style.width = (scrollTop / height) * 100 + "%";
-});
-
-
-/* ===============================
-   MOBILE MENU + SWIPE CLOSE
-================================ */
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector("nav");
-
-menuBtn.addEventListener("click", () => {
-  nav.classList.toggle("show");
-});
-
-// swipe to close
-let startX = 0;
-nav.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
-nav.addEventListener("touchend", e => {
-  if (startX - e.changedTouches[0].clientX > 60) {
-    nav.classList.remove("show");
+  if (progressBar) {
+    progressBar.style.width = (scrollTop / height) * 100 + "%";
   }
 });
 
 /* ===============================
-   CINEMATIC HERO PARALLAX
+   MOBILE NAV (SIMPLE & SAFE)
 ================================ */
-const hero = document.querySelector(".hero");
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector("nav");
 
-window.addEventListener("scroll", () => {
-  if (!hero) return;
-  const y = window.scrollY;
-  hero.style.backgroundPositionY = `${y * 0.35}px`;
-  hero.style.opacity = Math.max(1 - y / 500, 0.25);
-});
-
+if (menuBtn && nav) {
+  menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+}
