@@ -30,24 +30,6 @@ window.addEventListener("scroll", () => {
   progress.style.width = (scrollTop / height) * 100 + "%";
 });
 
-/* ===============================
-   PAGE NAVIGATION
-================================ */
-const links = document.querySelectorAll("nav a");
-const pages = document.querySelectorAll(".page");
-
-links.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const id = link.getAttribute("href").substring(1);
-
-    pages.forEach(p => p.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-
-    nav.classList.remove("show");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
 
 /* ===============================
    MOBILE MENU + SWIPE CLOSE
@@ -82,3 +64,4 @@ window.addEventListener("scroll", () => {
   hero.style.backgroundPositionY = `${y * 0.35}px`;
   hero.style.opacity = Math.max(1 - y / 500, 0.25);
 });
+
