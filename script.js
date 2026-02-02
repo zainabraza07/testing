@@ -114,10 +114,13 @@ const allSections = document.querySelectorAll("section[id]");
 
 function showSection(id) {
   allSections.forEach(section => {
-    section.style.display =
-      section.id === id ? "block" : "none";
+    section.classList.remove("active");
+    if (section.id === id) {
+      section.classList.add("active");
+    }
   });
 }
+
 
 showSection("home");
 
@@ -141,3 +144,4 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
