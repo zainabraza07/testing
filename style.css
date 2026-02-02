@@ -50,12 +50,6 @@ h1, h2, h3 {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .page {
-    display: block;
-  }
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -66,3 +60,4 @@ h1, h2, h3 {
   opacity: 1;
   transform: translateY(0);
 }
+
