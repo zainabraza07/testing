@@ -2,133 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hiking & Mountaineering Club</title>
-  <link rel="stylesheet" href="style.css"/>
-</head>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
 <body>
 
-<!-- Scroll Progress -->
-<div id="scroll-progress"></div>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="logo">HMC</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#trips">Trips</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+  </header>
 
-<!-- NAVBAR -->
-<header class="navbar reveal fade">
-  <div class="logo">
-    <img src="images/logo.jpeg" alt="HMC Logo">
-    <span>Hiking & Mountaineering Club</span>
-  </div>
-
-  <div class="menu-btn">☰</div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#trips">Trips</a>
-    <a href="#gallery">Gallery</a>
-  </nav>
-</header>
-
-<!-- ================= HOME ================= -->
-<section id="home" class="page active">
-
-  <section class="hero reveal fade">
-    <h1>Walk to Live</h1>
-    <p class="tagline">Official Website of the Hiking & Mountaineering Club</p>
-  </section>
-
-  <section class="section intro reveal slide-up">
-    <h2>Who We Are</h2>
-
-    <p>
-      The Hiking & Mountaineering Club (HMC) holds a prestigious position
-      among university-level societies through outdoor exploration and leadership.
-    </p>
-
-    <div class="intro-cards">
-      <div class="card reveal slide-left" style="--i:1">
-        <h3>Adventures</h3>
-        <p>Nationwide hiking, trekking and mountaineering expeditions.</p>
-      </div>
-
-      <div class="card reveal slide-up" style="--i:2">
-        <h3>Training</h3>
-        <p>Leadership, resilience and teamwork through nature.</p>
-      </div>
-
-      <div class="card reveal slide-right" style="--i:3">
-        <h3>Legacy</h3>
-        <p>A century of discipline, courage and brotherhood.</p>
-      </div>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>Hiking & Mountaineering Club</h1>
+      <p>Explore. Climb. Discover nature together.</p>
+      <a href="#trips" class="btn">View Trips</a>
     </div>
   </section>
-</section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="page">
-
-  <section class="section reveal fade">
-    <h2>About HMC</h2>
-    <p>
-      Established in <strong>1901</strong>, HMC evolved into a proud independent
-      society training students to face nature with confidence and honor.
-    </p>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        We are a community of hikers and mountaineers passionate about
+        adventure, teamwork, and nature exploration.
+      </p>
+    </div>
   </section>
 
-  <!-- TIMELINE -->
-  <section class="section reveal slide-up">
-    <h2>Our Journey</h2>
-    <div class="timeline">
-      <div class="event">1901 — Club Founded</div>
-      <div class="event">2014 — Official Flag Approved</div>
-      <div class="event">Present — Nationwide Expeditions</div>
+  <!-- TRIPS -->
+  <section id="trips" class="section bg-light">
+    <div class="container">
+      <h2>Recent Trips</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="images/trip1.jpg" alt="Bahawalpur Trip" />
+          <h3>Bahawalpur</h3>
+        </div>
+        <div class="card">
+          <img src="images/trip2.jpg" alt="Siran Valley Trip" />
+          <h3>Siran Valley</h3>
+        </div>
+        <div class="card">
+          <img src="images/trip3.jpg" alt="Panjpeer Rocks Trip" />
+          <h3>Panjpeer Rocks</h3>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section class="section reveal zoom">
-    <h2>Our Team</h2>
-
-    <div class="leaders">
-      <div class="leader reveal">
-        <img src="images/advisor.jpg" alt="Advisor">
-        <h4>Advisor</h4>
-        <p>Syed Yasir Usman</p>
-      </div>
-
-      <div class="leader reveal">
-        <img src="images/president.jpeg" alt="President">
-        <h4>President</h4>
-        <p>Sobaan Aziz Usmani</p>
+  <section id="team" class="section">
+    <div class="container">
+      <h2>Our Team</h2>
+      <div class="cards">
+        <div class="card team-card">
+          <img src="images/advisor.jpg" alt="Advisor" />
+          <h3>Advisor</h3>
+          <p>Faculty Mentor</p>
+        </div>
       </div>
     </div>
   </section>
-</section>
 
-<!-- ================= TRIPS ================= -->
-<section id="trips" class="page">
-  <section class="section reveal fade">
-    <h2>Trips & Expeditions</h2>
-    <div class="empty-state">
-      <p>Upcoming trips coming soon.</p>
+  <!-- CONTACT -->
+  <section id="contact" class="section bg-dark">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Email: hikingclub@example.com</p>
     </div>
   </section>
-</section>
 
-<!-- ================= GALLERY ================= -->
-<section id="gallery" class="page">
-  <section class="section reveal fade">
-    <h2>Gallery</h2>
-    <div class="empty-state">
-      <p>Adventure memories loading soon.</p>
-    </div>
-  </section>
-</section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Hiking & Mountaineering Club</p>
+  </footer>
 
-<footer class="reveal fade">
-  <p>© 2026 Hiking & Mountaineering Club</p>
-</footer>
-
-<script src="script.js"></script>
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
