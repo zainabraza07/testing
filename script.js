@@ -144,4 +144,20 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+/* ===================================
+   SCROLL PERFORMANCE SAFETY NET
+   Prevents animation spam
+=================================== */
+
+let ticking = false;
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
 
