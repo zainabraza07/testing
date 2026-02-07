@@ -1,163 +1,78 @@
-// Future features:
-// - Auto move expired reports to archive
-// - Admin upload system
-// - Dark mode
-
-/* ================================
-   SCROLL REVEAL ANIMATION
-================================ */
-const reveals = document.querySelectorAll(".reveal");
+// ==============================
+// SCROLL REVEAL FUNCTION
+// ==============================
+const revealElements = document.querySelectorAll('.reveal');
 
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
-
-  reveals.forEach(el => {
+  revealElements.forEach(el => {
     const elementTop = el.getBoundingClientRect().top;
-
-    if (elementTop < windowHeight - 120) {
-      el.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-
-/* ================================
-   SCROLL PROGRESS BAR
-================================ */
-const progressBar = document.getElementById("scroll-progress");
-
-window.addEventListener("scroll", () => {
-  const scrollTop = document.documentElement.scrollTop;
-  const scrollHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
-
-  const progress = (scrollTop / scrollHeight) * 100;
-  if (progressBar) {
-    progressBar.style.width = progress + "%";
-  }
-});
-
-
-/* ================================
-   MOUSE-REACTIVE GLOW EFFECT
-================================ */
-const glowElements = document.querySelectorAll(
-  ".card, .archive-item, .report-card"
-);
-
-glowElements.forEach(el => {
-  el.addEventListener("mousemove", e => {
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    el.style.setProperty("--x", `${x}px`);
-    el.style.setProperty("--y", `${y}px`);
-  });
-
-  el.addEventListener("mouseleave", () => {
-    el.style.setProperty("--x", "50%");
-    el.style.setProperty("--y", "50%");
-  });
-});
-
-
-/* ================================
-   NAVBAR ACTIVE LINK HIGHLIGHT
-================================ */
-const navLinks = document.querySelectorAll("nav a");
-const sections = document.querySelectorAll("section[id]");
-
-function setActiveNav() {
-  let scrollPos = window.scrollY + 150;
-
-  sections.forEach(section => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute("id");
-
-    if (scrollPos >= top && scrollPos < top + height) {
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${id}`) {
-          link.classList.add("active");
-        }
-      });
-    }
-  });
-}
-
-window.addEventListener("scroll", setActiveNav);
-
-
-/* ================================
-   SMOOTH FADE FOR HERO ON SCROLL
-================================ */
-const hero = document.querySelector(".hero");
-
-window.addEventListener("scroll", () => {
-  if (!hero) return;
-
-  let scrollY = window.scrollY;
-  hero.style.opacity = Math.max(1 - scrollY / 400, 0.2);
-});
-
-
-/* ================================
-   SECTION TOGGLE (NAV CLICK)
-================================ */
-const navLinksAll = document.querySelectorAll("nav a");
-const allSections = document.querySelectorAll("section[id]");
-
-function showSection(id) {
-  allSections.forEach(section => {
-    section.classList.remove("active");
-    if (section.id === id) {
-      section.classList.add("active");
-    }
-  });
-}
-
-
-showSection("home");
-
-navLinksAll.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const targetId = link.getAttribute("href").substring(1);
-    showSection(targetId);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-});
-
-
-const revealsAgain = document.querySelectorAll('.reveal');
-
-window.addEventListener('scroll', () => {
-  revealsAgain.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+    if (elementTop < windowHeight - 100) {
       el.classList.add('active');
     }
   });
-});
-/* ===================================
-   SCROLL PERFORMANCE SAFETY NET
-   Prevents animation spam
-=================================== */
+}
 
+// ==============================
+// SCROLL PROGRESS BAR
+// ==============================
+const progressBar = document.getElementById('scroll-progress');
+
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  progressBar.style.width = scrollPercent + '%';
+}
+
+// ==============================
+// NAV LINK HIGHLIGHT ON SCROLL
+// ==============================
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function highlightNav() {
+  let scrollPos = window.scrollY + 100; // offset for header
+  sections.forEach(section => {
+    if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const id = section.getAttribute('id');
+      document.querySelector(`.nav-link[href="#${id}"]`).classList.add('active');
+    }
+  });
+}
+
+// ==============================
+// HERO FADE ON SCROLL
+// ==============================
+const hero = document.querySelector('.hero');
+
+function fadeHero() {
+  let opacity = 1 - window.scrollY / 400;
+  hero.style.opacity = opacity < 0 ? 0 : opacity;
+}
+
+// ==============================
+// MAIN SCROLL EVENT USING requestAnimationFrame
+// ==============================
+function onScroll() {
+  revealOnScroll();
+  updateProgress();
+  highlightNav();
+  fadeHero();
+}
+
+// Optimize scroll events
 let ticking = false;
-
-window.addEventListener("scroll", () => {
+window.addEventListener('scroll', () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
+      onScroll();
       ticking = false;
     });
     ticking = true;
   }
 });
 
-
+// Initial trigger
+onScroll();
