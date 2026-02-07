@@ -1,30 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hiking & Mountaineering Club</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Hiking & Mountaineering Club</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
+  <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
-  <header class="navbar reveal">
-    <div class="logo">
-      <img src="images/logo.jpeg" alt="HMC Logo">
-      <span>Hiking & Mountaineering Club</span>
+  <!-- Header / Navbar -->
+  <header class="sticky-nav">
+    <div class="container nav-container">
+      <a href="#home" class="logo">HMC</a>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#trips" class="nav-link">Trips</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Join Us</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#trips">Trips</a>
-      <a href="#gallery">Gallery</a>
-    </nav>
   </header>
 
-  <!-- YOUR SECTIONS CONTINUE EXACTLY AS YOU PASTED -->
+  <!-- Hero Section -->
+  <section id="home" class="hero reveal">
+    <div class="hero-content">
+      <h1>Explore Beyond Limits</h1>
+      <p>University Hiking & Mountaineering Club</p>
+      <a href="#trips" class="btn">View Trips</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about reveal">
+    <div class="container">
+      <h2>About the Society</h2>
+      <p>The Hiking & Mountaineering Club is a community for students passionate about exploring nature, learning mountaineering skills, and creating lifelong memories on outdoor adventures. Join us to challenge yourself and connect with like-minded explorers.</p>
+    </div>
+  </section>
+
+  <!-- Trips / Expeditions Section -->
+  <section id="trips" class="trips reveal">
+    <div class="container">
+      <h2>Upcoming Trips & Expeditions</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Siran Valley</h3>
+          <p>Experience serene landscapes and breathtaking trails.</p>
+        </div>
+        <div class="card">
+          <h3>Panjpeer Rocks</h3>
+          <p>Adventure awaits with rock climbing and stunning views.</p>
+        </div>
+        <div class="card">
+          <h3>Bahawalpur Desert Trek</h3>
+          <p>Discover unique desert terrains and starry nights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery reveal">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="grid">
+        <img src="trip1.jpg" alt="Bahawalpur Trip">
+        <img src="trip2.jpg" alt="Siran Valley Trip">
+        <img src="trip3.jpg" alt="Panjpeer Rocks Trip">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Join Section -->
+  <section id="contact" class="contact reveal">
+    <div class="container">
+      <h2>Join Us</h2>
+      <p>Interested in joining our society? Fill out the form below and we'll get back to you.</p>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Why do you want to join?" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 University Hiking & Mountaineering Club. All Rights Reserved.</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
